@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta charset="utf-8">
   <link href="css/style.css" rel="stylesheet" type="text/css"></link>
+ 	<title>Nelson County Zip Code Navigator</title>
 
-  <meta charset="utf-8">
- 	<title>Nelson County Zip Code Finder</title>
-	
+ 	<script src="js/jQuery.js"></script>
+	<!--<script sru="js/objectData.js"></script>
+ 	<script src="js/buildPage.js"></script>-->
 </head>
 
 <body>
@@ -33,19 +35,41 @@
 <script>
 document.getElementById('towns_selector').value = "load"
 var sources = {
-	base: "base.png",
-	afto: ["Afto.png", 730,   3],	amhe: ["Amhe.png",   1,1005],	arri: ["Arri.png", 313,1109],
-	buck: ["Buck.png",1316,1250],	fabe: ["Fabe.png", 845, 465],	glad: ["Glad.png", 510,1510],
-	lovi: ["Lovi.png", 617, 722],	mont: ["Mont.png",   0, 545],	nell: ["Nell.png", 710, 370],
-	norw: ["Norw.png", 885,1365],	pine: ["Pine.png", 435,1080],	rose: ["Rose.png",   1, 375],
-	schu: ["Schu.png",1170, 610],	ship: ["Ship.png", 855, 770],	tyro: ["Tyro.png", 110, 575],
-	vesu: ["Vesu.png",   0, 475],	wing: ["Wing.png",1050,1220],   wint: ["Wint.png",   0,   0]
+	"base": {"name": "base", "x_coord": 0, "y_coord": 0},
+	afto: ["Afto.png", 730,   3],
+	amhe: ["Amhe.png",   1,1005],
+	arri: ["Arri.png", 313,1109],
+	buck: ["Buck.png",1316,1250],
+	fabe: ["Fabe.png", 845, 465],
+	glad: ["Glad.png", 510,1510],
+	lovi: ["Lovi.png", 617, 722],
+	mont: ["Mont.png",   0, 545],
+	nell: ["Nell.png", 710, 370],
+	norw: ["Norw.png", 885,1365],
+	pine: ["Pine.png", 435,1080],
+	rose: ["Rose.png",   1, 375],
+	schu: ["Schu.png",1170, 610],
+	ship: ["Ship.png", 855, 770],
+	tyro: ["Tyro.png", 110, 575],
+	vesu: ["Vesu.png",   0, 475],
+	wing: ["Wing.png",1050,1220],
+	wint: ["Wint.png",   0,   0]
 	};
-var c = document.getElementById('map_canvas'),
-    ctx = c.getContext('2d'),
-	img0 = new Image();
-img0.src = "images/" + sources["base"];
-img0.onload = function() {ctx.drawImage(img0, 0, 0)};
+
+var c = document.getElementById('map_canvas');
+var ctx = c.getContext('2d');
+
+var baseImg = new Image();
+baseImg.src = "images/" + sources.base.name + ".png";
+baseImg.onload = function() {
+	ctx.drawImage(
+		baseImg,
+		sources.base.x_coord,
+		sources.base.y_coord
+	)
+};
+
+
 function reTown() {
 	current = document.getElementById('towns_selector').value;
 	var img1 = new Image();
