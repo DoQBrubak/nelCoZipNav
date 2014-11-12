@@ -34,49 +34,48 @@
 
 <script>
 document.getElementById('towns_selector').value = "load"
-var sources = {
-	"base": {"name": "base", "x_coord": 0, "y_coord": 0},
-	afto: ["Afto.png", 730,   3],
-	amhe: ["Amhe.png",   1,1005],
-	arri: ["Arri.png", 313,1109],
-	buck: ["Buck.png",1316,1250],
-	fabe: ["Fabe.png", 845, 465],
-	glad: ["Glad.png", 510,1510],
-	lovi: ["Lovi.png", 617, 722],
-	mont: ["Mont.png",   0, 545],
-	nell: ["Nell.png", 710, 370],
-	norw: ["Norw.png", 885,1365],
-	pine: ["Pine.png", 435,1080],
-	rose: ["Rose.png",   1, 375],
-	schu: ["Schu.png",1170, 610],
-	ship: ["Ship.png", 855, 770],
-	tyro: ["Tyro.png", 110, 575],
-	vesu: ["Vesu.png",   0, 475],
-	wing: ["Wing.png",1050,1220],
-	wint: ["Wint.png",   0,   0]
-	};
+var objSource = {
+	"base": {"name": "base", "x_coord":    0, "y_coord":    0},
+	"afto": {"name": "afto", "x_coord":  730, "y_coord":    3},
+	"amhe": {"name": "amhe", "x_coord":    1, "y_coord": 1005},
+	"arri": {"name": "arri", "x_coord":  313, "y_coord": 1109},
+	"buck": {"name": "buck", "x_coord": 1316, "y_coord": 1250},
+	"fabe": {"name": "fabe", "x_coord":  845, "y_coord":  465},
+	"glad": {"name": "glad", "x_coord":  510, "y_coord": 1510},
+	"lovi": {"name": "lovi", "x_coord":  617, "y_coord":  722},
+	"mont": {"name": "mont", "x_coord":    0, "y_coord":  545},
+	"nell": {"name": "nell", "x_coord":  710, "y_coord":  370},
+	"norw": {"name": "norw", "x_coord":  885, "y_coord": 1365},
+	"pine": {"name": "pine", "x_coord":  435, "y_coord": 1080},
+	"rose": {"name": "rose", "x_coord":    1, "y_coord":  375},
+	"schu": {"name": "schu", "x_coord": 1170, "y_coord":  610},
+	"ship": {"name": "ship", "x_coord":  855, "y_coord":  770},
+	"tyro": {"name": "tyro", "x_coord":  110, "y_coord":  575},
+	"vesu": {"name": "vesu", "x_coord":    0, "y_coord":  475},
+	"wing": {"name": "wing", "x_coord": 1050, "y_coord": 1220},
+	"wint": {"name": "wint", "x_coord":    0, "y_coord":    0}
+};
 
 var c = document.getElementById('map_canvas');
 var ctx = c.getContext('2d');
 
-var baseImg = new Image();
-baseImg.src = "images/" + sources.base.name + ".png";
-baseImg.onload = function() {
-	ctx.drawImage(
-		baseImg,
-		sources.base.x_coord,
-		sources.base.y_coord
-	)
-};
+var makeImgAndDraw = function(pick) { //pass in a 4-letter name string
+	var localImgObj = new Image()
+	localImgObj.src = "images/" + pick + ".png";
+	localImgObj.onload = function() {
+		ctx.drawImage(
+			this,
+			objSource[pick].x_coord,
+			objSource[pick].y_coord
+)}};
 
+makeImgAndDraw("base");
 
 function reTown() {
 	current = document.getElementById('towns_selector').value;
-	var img1 = new Image();
-	img1.src = "images/" + sources[current][0];
-	img1.onload = function() {
-				  			 ctx.drawImage(img0, 0, 0);
-							 ctx.drawImage(img1, sources[current][1], sources[current][2])};
-							 }
+	makeImgAndDraw("base");
+	makeImgAndDraw(current);
+}
+
 </script>
 </html>
