@@ -34,22 +34,22 @@
 document.getElementById('towns_selector').value = "load"
 var sources = {
 	base: "base.png",
-	afto: ["Afto_sml.png", 730,   3],	amhe: ["Amhe_sml.png",   1,1005],	arri: ["Arri_sml.png", 313,1109],
-	buck: ["Buck_sml.png",1316,1250],	fabe: ["Fabe_sml.png", 845, 465],	glad: ["Glad_sml.png", 510,1510],
-	lovi: ["Lovi_sml.png", 617, 722],	mont: ["Mont_sml.png",   0, 545],	nell: ["Nell_sml.png", 710, 370],
-	norw: ["Norw_sml.png", 885,1365],	pine: ["Pine_sml.png", 435,1080],	rose: ["Rose_sml.png",   1, 375],
-	schu: ["Schu_sml.png",1170, 610],	ship: ["Ship_sml.png", 855, 770],	tyro: ["Tyro_sml.png", 110, 575],
-	vesu: ["Vesu_sml.png",   0, 475],	wing: ["Wing_sml.png",1050,1220],   wint: ["Wint_sml.png",   0,   0]
+	afto: ["Afto.png", 730,   3],	amhe: ["Amhe.png",   1,1005],	arri: ["Arri.png", 313,1109],
+	buck: ["Buck.png",1316,1250],	fabe: ["Fabe.png", 845, 465],	glad: ["Glad.png", 510,1510],
+	lovi: ["Lovi.png", 617, 722],	mont: ["Mont.png",   0, 545],	nell: ["Nell.png", 710, 370],
+	norw: ["Norw.png", 885,1365],	pine: ["Pine.png", 435,1080],	rose: ["Rose.png",   1, 375],
+	schu: ["Schu.png",1170, 610],	ship: ["Ship.png", 855, 770],	tyro: ["Tyro.png", 110, 575],
+	vesu: ["Vesu.png",   0, 475],	wing: ["Wing.png",1050,1220],   wint: ["Wint.png",   0,   0]
 	};
 var c = document.getElementById('map_canvas'),
     ctx = c.getContext('2d'),
 	img0 = new Image();
-img0.src = sources["base"];
+img0.src = "images/" + sources["base"];
 img0.onload = function() {ctx.drawImage(img0, 0, 0)};
 function reTown() {
 	current = document.getElementById('towns_selector').value;
 	var img1 = new Image();
-	img1.src = sources[current][0];
+	img1.src = "images/" + sources[current][0];
 	img1.onload = function() {
 				  			 ctx.drawImage(img0, 0, 0);
 							 ctx.drawImage(img1, sources[current][1], sources[current][2])};
