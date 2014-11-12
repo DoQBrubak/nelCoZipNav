@@ -1,0 +1,3 @@
+.floating-menu {position:fixed; top:30px; left:30px; width:220px; z-index:100; background-color:silver; border: solid silver 5px;}
+.floating-menu span {font-size:24px; }
+.floating-menu select {width: 220px; }
