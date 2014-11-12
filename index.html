@@ -6,8 +6,8 @@
  	<title>Nelson County Zip Code Navigator</title>
 
  	<script src="js/jQuery.js"></script>
-	<!--<script sru="js/objectData.js"></script>
- 	<script src="js/buildPage.js"></script>-->
+	<script src="js/objectData.js"></script>
+ 	<!--<script src="js/buildPage.js"></script>-->
 </head>
 
 <body>
@@ -15,15 +15,24 @@
 	<span>Select a zip code to see its territory.</span>
 	<form id="towns_form" onchange="reTown()">
 	  <select id="towns_selector">
-	  	  <!--<option value="base">base map</option>--><option value="afto">Afton - 22920</option>
-		  <option value="amhe">Amherst - 24521</option><option value="arri">Arrington - 22922</option>
-		  <option value="buck">Buckingham - 23921</option><option value="fabe">Faber - 22938</option>
-		  <option value="glad">Gladstone - 24553</option><option value="lovi">Lovingston - 22949</option>
-		  <option value="mont">Montebello - 24464</option><option value="nell">Nellysford - 22958</option>
-		  <option value="norw">Norwood - 24581</option><option value="pine">Piney River - 22964</option>
-		  <option value="rose">Roseland - 22967</option><option value="schu">Schuyler - 22969</option>
-		  <option value="ship">Shipman - 22971</option><option value="tyro">Tyro - 22976</option>
-		  <option value="vesu">Vesuvius - 24483</option><option value="wing">Wingina - 24599</option>
+	  	  <!--<option value="base">base map</option>-->
+	  	  <option value="afto">Afton - 22920</option>
+		  	<option value="amhe">Amherst - 24521</option>
+		  	<option value="arri">Arrington - 22922</option>
+		 	  <option value="buck">Buckingham - 23921</option>
+		 	  <option value="fabe">Faber - 22938</option>
+		    <option value="glad">Gladstone - 24553</option>
+		    <option value="lovi">Lovingston - 22949</option>
+		  	<option value="mont">Montebello - 24464</option>
+		  	<option value="nell">Nellysford - 22958</option>
+		  	<option value="norw">Norwood - 24581</option>
+		  	<option value="pine">Piney River - 22964</option>
+		  	<option value="rose">Roseland - 22967</option>
+		  	<option value="schu">Schuyler - 22969</option>
+		  	<option value="ship">Shipman - 22971</option>
+		  	<option value="tyro">Tyro - 22976</option>
+		 	  <option value="vesu">Vesuvius - 24483</option>
+		 	  <option value="wing">Wingina - 24599</option>
 	   </select>
 	</form>
 </div>
@@ -33,40 +42,20 @@
 </body>
 
 <script>
-document.getElementById('towns_selector').value = "load"
-var objSource = {
-	"base": {"name": "base", "x_coord":    0, "y_coord":    0},
-	"afto": {"name": "afto", "x_coord":  730, "y_coord":    3},
-	"amhe": {"name": "amhe", "x_coord":    1, "y_coord": 1005},
-	"arri": {"name": "arri", "x_coord":  313, "y_coord": 1109},
-	"buck": {"name": "buck", "x_coord": 1316, "y_coord": 1250},
-	"fabe": {"name": "fabe", "x_coord":  845, "y_coord":  465},
-	"glad": {"name": "glad", "x_coord":  510, "y_coord": 1510},
-	"lovi": {"name": "lovi", "x_coord":  617, "y_coord":  722},
-	"mont": {"name": "mont", "x_coord":    0, "y_coord":  545},
-	"nell": {"name": "nell", "x_coord":  710, "y_coord":  370},
-	"norw": {"name": "norw", "x_coord":  885, "y_coord": 1365},
-	"pine": {"name": "pine", "x_coord":  435, "y_coord": 1080},
-	"rose": {"name": "rose", "x_coord":    1, "y_coord":  375},
-	"schu": {"name": "schu", "x_coord": 1170, "y_coord":  610},
-	"ship": {"name": "ship", "x_coord":  855, "y_coord":  770},
-	"tyro": {"name": "tyro", "x_coord":  110, "y_coord":  575},
-	"vesu": {"name": "vesu", "x_coord":    0, "y_coord":  475},
-	"wing": {"name": "wing", "x_coord": 1050, "y_coord": 1220},
-	"wint": {"name": "wint", "x_coord":    0, "y_coord":    0}
-};
+document.getElementById('towns_selector').value = "null"
 
 var c = document.getElementById('map_canvas');
 var ctx = c.getContext('2d');
 
-var makeImgAndDraw = function(pick) { //pass in a 4-letter name string
+//pass in a 4-letter name string
+var makeImgAndDraw = function(choosePlace) {
 	var localImgObj = new Image()
-	localImgObj.src = "images/" + pick + ".png";
+	localImgObj.src = "images/" + choosePlace + ".png";
 	localImgObj.onload = function() {
 		ctx.drawImage(
 			this,
-			objSource[pick].x_coord,
-			objSource[pick].y_coord
+			objSource[choosePlace]["xy"][0],
+			objSource[choosePlace]["xy"][1]
 )}};
 
 makeImgAndDraw("base");
