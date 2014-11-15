@@ -1,38 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
   <title>Nelson County Zip Code Navigator</title>
-
   <link href="css/style.css" rel="stylesheet" type="text/css"></link>
- 	
  	<script src="js/jQuery.js"></script>
-	<script src="js/objectData.js"></script>
- 	<script src="js/buildPage.js"></script>
 </head>
 
 <body>
   <div class="floating-menu">
     <span>Select a zip code to see its territory.</span>
     <select id="towns_selector">
-    	<option value="base">All of Nelson</option>
-    	<option value="afto">Afton - 22920</option>
-      <option value="amhe">Amherst - 24521</option>
-      <option value="arri">Arrington - 22922</option>
-     	<option value="buck">Buckingham - 23921</option>
-     	<option value="fabe">Faber - 22938</option>
-      <option value="glad">Gladstone - 24553</option>
-      <option value="lovi">Lovingston - 22949</option>
-    	<option value="mont">Montebello - 24464</option>
-    	<option value="nell">Nellysford - 22958</option>
-    	<option value="norw">Norwood - 24581</option>
-    	<option value="pine">Piney River - 22964</option>
-    	<option value="rose">Roseland - 22967</option>
-    	<option value="schu">Schuyler - 22969</option>
-    	<option value="ship">Shipman - 22971</option>
-    	<option value="tyro">Tyro - 22976</option>
-     	<option value="vesu">Vesuvius - 24483</option>
-     	<option value="wing">Wingina - 24599</option>
     </select>
   </div>
 
@@ -40,36 +19,8 @@
     Render canvas here.
   </canvas>
 
+<script src="js/objectData.js"></script>
+<script src="js/buildPage.js"></script>
+
 </body>
-
-<script>
-$( "#towns_selector" ).attr("value", "base");
-
-var c = document.getElementById('map_canvas');
-var ctx = c.getContext('2d');
-
-//pass in a 4-letter name string
-var makeImgAndDraw = function(choosePlace) {
-	var localImgObj = new Image()
-	localImgObj.src = "images/" + choosePlace + ".png";
-	
-
-  localImgObj.onload = function() {
-		ctx.drawImage(
-			this,
-			places[choosePlace]["xy"][0],
-			places[choosePlace]["xy"][1]
-)}};
-
-makeImgAndDraw("base");
-
-$( "select" ).change( reTown );
-
-function reTown() {
-	current = $('#towns_selector').prop("value");
-	makeImgAndDraw("base");
-	makeImgAndDraw(current);
-}
-
-</script>
 </html>

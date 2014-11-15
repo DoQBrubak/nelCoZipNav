@@ -1,3 +1,17 @@
-.floating-menu {position:fixed; top:30px; left:30px; width:30%; z-index:100; background-color:silver; border: solid silver 5px;}
-.floating-menu span {font-size:24px; }
-.floating-menu select {float: center; width: 70%; }
+.floating-menu {
+	position:fixed;
+	top:5%;
+	left:5%;
+	width:30%;
+	z-index:100;
+	background-color:silver;
+	border: solid silver 10px;
+  }
+
+.floating-menu span {
+	font-size:20px;
+  }
+
+.floating-menu select {
+	width: 100%;
+	}

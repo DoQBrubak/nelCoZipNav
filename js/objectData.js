@@ -56,7 +56,7 @@ var places = {
 		"zip": "22969"
 	},
 	"ship": {"xy": [ 845, 465],
-		"fullname": "Shipman and Rockfish)",
+		"fullname": "Shipman and Rockfish",
 		"zip": "22971"
 	},
 	"tyro": {"xy": [ 110, 575],
@@ -68,7 +68,7 @@ var places = {
 		"zip": "24483"
 	},
 	"wing": {"xy": [ 1050, 1220],
-		"fullname": "Faber",
+		"fullname": "Wingina",
 		"zip": "22938"
 	}
 };
