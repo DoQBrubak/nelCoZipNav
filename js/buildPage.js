@@ -44,8 +44,8 @@ function reTown() {
 
 
 
-$('#townSelector').attr( 'value', current.value );
-$('#townSelector').change( reTown );
+$('#townSelector').attr('value', current.value );
+$('#townSelector').change(reTown);
 places.renderHTML();
 makeImgAndDraw('base');
 
