@@ -1,4 +1,5 @@
 var places = {
+  "places": {
   "base": {"xy": [ 0, 0],
     "fullname": "All of Nelson County",
     "zip": "2xxxx"
@@ -71,7 +72,5 @@ var places = {
 		"fullname": "Wingina",
 		"zip": "22938"
 	}
+	}
 };
-
-//places.keys = Object.keys(this);
-placeKeys = Object.keys(places);
