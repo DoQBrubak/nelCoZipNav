@@ -1,5 +1,5 @@
 var places = {
-	"base": {"xy": [ 0, 0],
+  "base": {"xy": [ 0, 0],
     "fullname": "All of Nelson County",
     "zip": "2xxxx"
   },
@@ -73,4 +73,5 @@ var places = {
 	}
 };
 
+//places.keys = Object.keys(this);
 placeKeys = Object.keys(places);

@@ -1,17 +1,19 @@
-.floating-menu {
+.menu {
 	position:fixed;
-	top:5%;
-	left:5%;
+	top:10%;
+	left:10%;
 	width:30%;
 	z-index:100;
 	background-color:silver;
 	border: solid silver 10px;
   }
 
-.floating-menu span {
+.menu span {
 	font-size:20px;
+	font-family: geneva;
   }
 
-.floating-menu select {
+.menu select {
 	width: 100%;
+	font-family: geneva;
 	}
